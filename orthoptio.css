@@ -188,3 +188,13 @@ select{
     margin-right: 5%;
 }
 
+.updateStockselect{
+	width: 30%;
+	margin-right: 2%;
+}
+
+.updateStockinput{
+	width: 30% !important; 
+	margin-top: 0 !important;
+	margin-right: 2%;
+}

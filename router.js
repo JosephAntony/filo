@@ -14,6 +14,7 @@
 			 "":"updatePatient"
 			,"updatePatient": "updatePatient"
 			,"medicalDetails":"updatePatientMedicalDetails"
+			,"updateStock"   : "updateStock"
 		}
 	   ,handleEvent: function(event){
 	   		var parent =  filo.router;
@@ -70,6 +71,33 @@
 
 	   		
 	   		document.getElementsByTagName("head")[0].appendChild(scriptTag);
+	   }
+	   ,updateStock: function(){
+
+
+	   		var scriptTag =  document.createElement('script');
+
+	   		var callBackFunction = function(event){
+	   			var updateStockHTML = filo.template.updateStock.updateStock;
+	   			var formContainerEle =  document.getElementsByClassName("formContainer")[0];
+	   			formContainerEle.innerHTML = updateStockHTML;
+
+	   			var eleIDArr=[
+ 							{eleId:"done", event:"click"},
+							{eleId:"reset", event:"click"},
+							{eleId:"addMedicines", event:"click"},
+							{eleId:"addAppliances", event:"click"}
+ 				];
+ 				filo.updateStock.init(eleIDArr); 
+	   		};	
+
+	   		scriptTag.onload = callBackFunction;
+	   		scriptTag.type="text/javascript";
+	   		scriptTag.src = "./updateStock.js";
+
+	   		
+	   		document.getElementsByTagName("head")[0].appendChild(scriptTag);
+
 	   } 	
 	   ,init: function(){
 	   		window.addEventListener('hashchange', this, false);
